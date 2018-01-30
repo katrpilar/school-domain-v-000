@@ -1,12 +1,8 @@
 class School
   ROSTER = {}
   
-  def initialize(school)
-    @school = school
-  end
-  
-  def roster=(roster)
-    @roster = roster
+  def initialize(name)
+    @name = name
   end
   
   def roster
@@ -14,13 +10,11 @@ class School
   end
   
   def add_student(student_name,grade)
-    @student_name = student_name
-    @grade = grade
-    if ROSTER[@grade].kind_of?(Array)
-      ROSTER[@grade] << @student_name
+    if ROSTER.has_key?(grade)
+      ROSTER[grade] << student_name
     else 
-      ROSTER[@grade] = []
-      ROSTER[@grade] << @student_name
+      ROSTER[grade] = []
+      ROSTER[grade] << student_name
     end
   end
   
