@@ -13,16 +13,16 @@ class School
     if @roster.has_key?(grade)
       @roster[grade] << student_name
     else 
-      ROSTER[grade] = []
-      ROSTER[grade] << student_name
+      @roster[grade] = []
+      @roster[grade] << student_name
     end
   end
   
   def grade(grade)
-    ROSTER[grade]
+    @roster[grade]
   end
   
   def sort
-    ROSTER.sort_by {|_key, value| value}.to_h
+    @roster.sort_by {|_key, value| value}.to_h
   end
 end
